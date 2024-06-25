@@ -2,6 +2,8 @@
 %\VignettePackage{FRASER}
 %\VignetteEngine{knitr::knitr}
 %\VignetteEncoding{UTF-8}
+\usepackage{xcolor}
+\definecolor{fgcolor}{rgb}{0.941, 0.941, 0.941}
 
 \documentclass[11pt]{article}
 
