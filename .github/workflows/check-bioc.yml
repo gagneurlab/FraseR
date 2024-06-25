@@ -135,6 +135,11 @@ jobs:
           ## Required to install magick as noted at
           ## https://github.com/r-lib/usethis/commit/f1f1e0d10c1ebc75fd4c18fa7e2de4551fd9978f#diff-9bfee71065492f63457918efcd912cf2
           brew install imagemagick@6
+          
+          echo 'export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"' >> /Users/runner/.bash_profile
+          export LDFLAGS="-L/opt/homebrew/opt/imagemagick@6/lib"
+          export CPPFLAGS="-I/opt/homebrew/opt/imagemagick@6/include"
+          
 
           ## For textshaping, required by ragg, and required by pkgdown
           brew install harfbuzz fribidi
