@@ -6,9 +6,9 @@
 
 \documentclass[11pt]{article}
 
-\definecolor{fgcolor}{rgb}{0.941, 0.941, 0.941}
+%\definecolor{fgcolor}{rgb}{0.941, 0.941, 0.941}
 
-<<style-knitr, eval=TRUE, echo=FALSE>>=
+<<style-knitr, eval=TRUE, echo=FALSE, results="asis">>=
 BiocStyle::latex()
 @
 
