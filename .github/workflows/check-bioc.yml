@@ -161,6 +161,7 @@ jobs:
         
       - name: Install tinytex packages
         run: |
+          tinytex::install_tinytex(version = "2024.03")
           system("tlmgr --version")
           install.packages("tinytex")
           tinytex::tlmgr_install(pkgs = c("bera", "caption", "changepage", "enumitem", "everysel", "fancyhdr", "footmisc", "grfext", "index", "marginfix", "mathtools", 
