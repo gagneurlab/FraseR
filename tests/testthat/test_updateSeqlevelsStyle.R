@@ -1,9 +1,5 @@
 context("Test updateSeqlevelsStyle function")
 
-if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-library(BiocManager)
-
 test_that("hg38, UCSC to NCBI", {
   if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
