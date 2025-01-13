@@ -1,9 +1,9 @@
 context("Test updateSeqlevelsStyle function")
 
 test_that("hg38, UCSC to NCBI", {
-  if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-  library(BiocManager)
+  #if (!require("BiocManager", quietly = TRUE))
+  #  install.packages("BiocManager")
+
 
   BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")
   genome <- getBSgenome("hg38")
