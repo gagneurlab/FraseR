@@ -1,6 +1,7 @@
 context("Test updateSeqlevelsStyle function")
 
 test_that("hg38, UCSC to NCBI", {
+  install("BSgenome.Hsapiens.UCSC.hg38")
   genome <- getBSgenome("hg38")
   bsgenome <- genome
   
@@ -12,6 +13,7 @@ test_that("hg38, UCSC to NCBI", {
 })
 
 test_that("hg38, NCBI to UCSC", {
+  install("BSgenome.Hsapiens.NCBI.GRCh38")
   genome <- getBSgenome("GRCh38")
   bsgenome <- genome
   
@@ -23,6 +25,7 @@ test_that("hg38, NCBI to UCSC", {
 })
 
 test_that("hg19, NCBI to UCSC", {
+  install("BSgenome.Hsapiens.1000genomes.hs37d5")
   genome <- getBSgenome("hs37d5")
   bsgenome <- genome
   
@@ -34,6 +37,7 @@ test_that("hg19, NCBI to UCSC", {
 })
 
 test_that("hg19, UCSC to NCBI", {
+  install("BSgenome.Hsapiens.UCSC.hg19")
   genome <- getBSgenome("hg19")
   bsgenome <- genome
   
