@@ -5,7 +5,7 @@ test_that("hg38, UCSC to NCBI", {
   #  install.packages("BiocManager")
 
 
-  BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")
+  #BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")
   genome <- getBSgenome("hg38")
   bsgenome <- genome
   
