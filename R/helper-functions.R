@@ -708,7 +708,7 @@ updateSeqlevelsStyle <- function(bsgenome, genome_assembly, new_style, old_style
       file_url <- "https://www.cmm.in.tum.de/public/paper/FRASER/hg19_NCBI2UCSC.txt"
       message(paste0("Downloading seqlevelStyle conversion dict: "), file_url)
       
-      response <- httr::GET(file_url, write_disk(conversion_dict_path, overwrite = TRUE))
+      response <- httr::GET(file_url, httr::write_disk(conversion_dict_path, overwrite = TRUE))
       
       if (response$status_code == 200) {
         assembly_report <- fread(conversion_dict_path)
@@ -726,7 +726,7 @@ updateSeqlevelsStyle <- function(bsgenome, genome_assembly, new_style, old_style
       file_url <- "https://www.cmm.in.tum.de/public/paper/FRASER/hg38_NCBI2UCSC.txt"
       message(paste0("Downloading seqlevelStyle conversion dict: "), file_url)
       
-      response <- httr::GET(file_url, write_disk(conversion_dict_path, overwrite = TRUE))
+      response <- httr::GET(file_url, httr::write_disk(conversion_dict_path, overwrite = TRUE))
       
       if (response$status_code == 200) {
         assembly_report <- fread(conversion_dict_path)
