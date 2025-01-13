@@ -1,5 +1,7 @@
 context("Test updateSeqlevelsStyle function")
-library(BiocManager)
+
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
 
 test_that("hg38, UCSC to NCBI", {
   BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")
