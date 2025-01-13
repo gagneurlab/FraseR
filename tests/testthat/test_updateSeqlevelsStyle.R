@@ -1,7 +1,8 @@
 context("Test updateSeqlevelsStyle function")
+library(BiocManager)
 
 test_that("hg38, UCSC to NCBI", {
-  install("BSgenome.Hsapiens.UCSC.hg38")
+  BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")
   genome <- getBSgenome("hg38")
   bsgenome <- genome
   
@@ -13,19 +14,19 @@ test_that("hg38, UCSC to NCBI", {
 })
 
 test_that("hg38, NCBI to UCSC", {
-  install("BSgenome.Hsapiens.NCBI.GRCh38")
+  BiocManager::install("BSgenome.Hsapiens.NCBI.GRCh38")
   genome <- getBSgenome("GRCh38")
   bsgenome <- genome
   
   seqlevelsStyle(bsgenome) <- "UCSC"
-  genome <- updateSeqlevelsStyle(genome, metadata(genome)$genome, "UCSC", metadata(genome)$provider, "./")
+  BiocManager::genome <- updateSeqlevelsStyle(genome, metadata(genome)$genome, "UCSC", metadata(genome)$provider, "./")
   
   expect_equal(seqnames(genome), seqnames(bsgenome))
   
 })
 
 test_that("hg19, NCBI to UCSC", {
-  install("BSgenome.Hsapiens.1000genomes.hs37d5")
+  BiocManager::install("BSgenome.Hsapiens.1000genomes.hs37d5")
   genome <- getBSgenome("hs37d5")
   bsgenome <- genome
   
@@ -37,7 +38,7 @@ test_that("hg19, NCBI to UCSC", {
 })
 
 test_that("hg19, UCSC to NCBI", {
-  install("BSgenome.Hsapiens.UCSC.hg19")
+  BiocManager::install("BSgenome.Hsapiens.UCSC.hg19")
   genome <- getBSgenome("hg19")
   bsgenome <- genome
   
