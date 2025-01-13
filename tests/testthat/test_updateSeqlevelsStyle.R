@@ -5,6 +5,10 @@ if (!require("BiocManager", quietly = TRUE))
 library(BiocManager)
 
 test_that("hg38, UCSC to NCBI", {
+  if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+  library(BiocManager)
+
   BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")
   genome <- getBSgenome("hg38")
   bsgenome <- genome
