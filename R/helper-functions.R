@@ -710,10 +710,7 @@ updateSeqlevelsStyle <- function(bsgenome, genome_assembly, new_style, old_style
       
       response <- httr::GET(file_url, httr::write_disk(conversion_dict_path, overwrite = TRUE))
       
-      if (response$status_code == 200) {
-        assembly_report <- fread(conversion_dict_path)
-      }
-      else {
+      if (response$status_code != 200) {
         stop(paste0("Failed to download the file. Status code:", response$status_code,
                     ".\nPlease download the file manually from ", file_url, " to the following directory: ", conversion_dict_path))
       }
@@ -728,12 +725,10 @@ updateSeqlevelsStyle <- function(bsgenome, genome_assembly, new_style, old_style
       
       response <- httr::GET(file_url, httr::write_disk(conversion_dict_path, overwrite = TRUE))
       
-      if (response$status_code == 200) {
-        assembly_report <- fread(conversion_dict_path)
-      } else {
+      if (response$status_code != 200) {
         stop(paste0("Failed to download the file. Status code:", response$status_code,
                     ".\nPlease download the file manually from ", file_url, " to the following directory: ", conversion_dict_path))
-      }
+      } 
     }
     assembly_report <- fread(conversion_dict_path)
   }
@@ -757,8 +752,9 @@ updateSeqlevelsStyle <- function(bsgenome, genome_assembly, new_style, old_style
   else if (new_style == "NCBI" & old_style=="UCSC"){ # new_style == "NCBI"
     seqinfo(bsgenome)@genome <- assembly_report[!(is.na(UCSC_Genome_Name) | UCSC_Genome_Name == ""), UCSC_Genome_Name]
   }
-  
-  seqlevelsStyle(bsgenome) <- new_style
+
+  ## Next line also accesses ftp and won't work behind a proxy.
+  # seqlevelsStyle(bsgenome) <- new_style
   
   return (bsgenome)
 }
