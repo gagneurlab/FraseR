@@ -4,10 +4,6 @@ if (!requireNamespace('BiocManager', quietly = TRUE)) {
    }
 
 test_that("hg38, UCSC to NCBI", {
-  #if (!requireNamespace('BiocManager', quietly = TRUE)) {
-  #  install.packages('BiocManager')
-  #  BiocManager::install("remotes")
-  #}
   
   BiocManager::install("BSgenome.Hsapiens.UCSC.hg38", ask=FALSE, update=FALSE)
 
@@ -26,7 +22,7 @@ test_that("hg38, NCBI to UCSC", {
   #  install.packages('BiocManager')
   #}
   
-  #BiocManager::install("BSgenome.Hsapiens.NCBI.GRCh38", ask=FALSE, update=FALSE)
+  BiocManager::install("BSgenome.Hsapiens.NCBI.GRCh38", ask=FALSE, update=FALSE)
   
   genome <- getBSgenome("GRCh38")
   bsgenome <- genome
@@ -43,7 +39,7 @@ test_that("hg19, NCBI to UCSC", {
   #  install.packages('BiocManager')
   #}
   
-  #BiocManager::install("BSgenome.Hsapiens.1000genomes.hs37d5", ask=FALSE, update=FALSE)
+  BiocManager::install("BSgenome.Hsapiens.1000genomes.hs37d5", ask=FALSE, update=FALSE)
   genome <- getBSgenome("hs37d5")
   bsgenome <- genome
   
@@ -58,7 +54,7 @@ test_that("hg19, UCSC to NCBI", {
   #if (!requireNamespace('BiocManager', quietly = TRUE)) {
   #  install.packages('BiocManager')
   #}
-  #BiocManager::install("BSgenome.Hsapiens.UCSC.hg19", ask=FALSE, update=FALSE)
+  BiocManager::install("BSgenome.Hsapiens.UCSC.hg19", ask=FALSE, update=FALSE)
   genome <- getBSgenome("hg19")
   bsgenome <- genome
   
