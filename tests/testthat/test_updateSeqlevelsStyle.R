@@ -1,4 +1,7 @@
 context("Test updateSeqlevelsStyle function")
+if (!requireNamespace('BiocManager', quietly = TRUE)) {
+    install.packages('BiocManager')
+   }
 
 test_that("hg38, UCSC to NCBI", {
   #if (!requireNamespace('BiocManager', quietly = TRUE)) {
@@ -6,7 +9,7 @@ test_that("hg38, UCSC to NCBI", {
   #  BiocManager::install("remotes")
   #}
   
-  #BiocManager::install("BSgenome.Hsapiens.UCSC.hg38", ask=FALSE, update=FALSE)
+  BiocManager::install("BSgenome.Hsapiens.UCSC.hg38", ask=FALSE, update=FALSE)
 
   genome <- getBSgenome("hg38")
   bsgenome <- genome
@@ -29,7 +32,7 @@ test_that("hg38, NCBI to UCSC", {
   bsgenome <- genome
   
   seqlevelsStyle(bsgenome) <- "UCSC"
-  BiocManager::genome <- updateSeqlevelsStyle(genome, metadata(genome)$genome, "UCSC", metadata(genome)$provider, "./")
+  genome <- updateSeqlevelsStyle(genome, metadata(genome)$genome, "UCSC", metadata(genome)$provider, "./")
   
   expect_equal(seqnames(genome), seqnames(bsgenome))
   
